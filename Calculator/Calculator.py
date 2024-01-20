@@ -11,17 +11,37 @@ e=Entry(root, width=17 , borderwidth=5,font=("arial",25))
 e.grid(row=0,column=0,columnspan=3,padx=10,pady=10)
 
 #Main Logic to make a simple calculator
-def button_click():
-    None
-
-def button_sign():
-    None
-
-def button_equal():
-    None
+def button_click(Number):
+    current=e.get()
+    e.delete(0,END)
+    e.insert(0,str(current)+str(Number))
 
 def button_clear():
-    None
+    e.delete(0, END)
+
+def button_sign(sign):
+    first_number = e.get()
+    global f_num, operator
+    operator = sign
+    f_num = float(first_number)
+    e.delete(0, END)
+
+#add Main Logic of Calculator
+def button_equal():
+    second_number=e.get()
+    e.delete(0,END)
+    if operator=="+":
+        e.insert(0,f_num + float(second_number))
+    elif operator=="-":
+        e.insert(0,f_num - float(second_number))
+    elif operator=="/":
+        if float(second_number)==0:
+            e.insert(0,"error")
+        else:
+            e.insert(0,f_num / float(second_number))
+    elif operator=="*":
+        e.insert(0,f_num * float(second_number))
+
 
 #add calculator buttons
 button_1=Button(root, text="1",padx=45, pady=25,borderwidth=4, command=lambda:button_click(1))
