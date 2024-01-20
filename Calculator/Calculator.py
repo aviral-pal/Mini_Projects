@@ -10,7 +10,7 @@ root.maxsize(332,550)
 e=Entry(root, width=17 , borderwidth=5,font=("arial",25))
 e.grid(row=0,column=0,columnspan=3,padx=10,pady=10)
 
-#Main Logic to make a simple calculator
+#Button Click Function
 def button_click(Number):
     current=e.get()
     e.delete(0,END)
@@ -26,7 +26,6 @@ def button_sign(sign):
     f_num = float(first_number)
     e.delete(0, END)
 
-#add Main Logic of Calculator
 def button_equal():
     second_number=e.get()
     e.delete(0,END)
@@ -43,7 +42,7 @@ def button_equal():
         e.insert(0,f_num * float(second_number))
 
 
-#add calculator buttons
+#Calculator Buttons
 button_1=Button(root, text="1",padx=45, pady=25,borderwidth=4, command=lambda:button_click(1))
 button_2=Button(root, text="2",padx=45, pady=25,borderwidth=4, command=lambda:button_click(2))
 button_3=Button(root, text="3",padx=45, pady=25,borderwidth=4, command=lambda:button_click(3))
@@ -64,7 +63,7 @@ button_multiply=Button(root, text="*",padx=45, pady=25,borderwidth=4, command=la
 button_clear=Button(root, text="clear",padx=45, pady=25,borderwidth=4, command=button_clear)
 button_equal=Button(root, text="=",padx=45, pady=25,borderwidth=4, command=button_equal)
 
-#Display Buttons
+#Buttons Placement
 button_1.grid(row=3,column=0)
 button_2.grid(row=3,column=1)
 button_3.grid(row=3,column=2)
